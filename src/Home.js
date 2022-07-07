@@ -1,24 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './Home';
+import React from 'react'
+import {
+    Link
+  } from "react-router-dom";
+import "./styles/home.css"
+// import { VictoryBar,VictoryChart,VictoryTheme,VictoryAxis, VictoryPie } from 'victory';
+import { useSelector, useDispatch } from "react-redux";
+import { selectExC, selectExtrovertAbove, selectInC, selectIntrovertAbove } from './features/counter/counterSlice';
 
-function App() {
-  return (
+
+
+function Home() {
+    const introvert = useSelector(selectInC);
+    const extrovert = useSelector(selectExC);
+    const introvertAbove = useSelector(selectIntrovertAbove);
+    const extrovertAbove = useSelector(selectExtrovertAbove);
     
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" >
-        <Route index element={<Home />} />
-        <Route path="test" element={<Counter />} />
+  return (
+    <div>
+
+    <div className='container'>
+        <div style={{fontSize:"3vw", fontFamily:'cursive', textAlign:"center"}}> Hello! </div>
+        <div style={{fontSize:"3vw", fontFamily:'cursive', textAlign:"center"}}> Welcome to the personality test </div>
+        <div style={{fontSize:"3vw", fontFamily:'cursive', textAlign:"center"}}> where you can learn if you are an introvert or extrovert </div>
         
-        
-      </Route>
-    </Routes>
-  </BrowserRouter>
-  );
+     
+    </div>
+    <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap"}}>
+
+{/* <VictoryChart
+        // adding the material theme provided with Victory
+        theme={VictoryTheme.material}
+        domainPadding={50}
+      >
+        <VictoryAxis
+          tickValues={[1, 2]}
+          tickFormat={["Introvert", "Extrovert"]}
+          style={{fontSize:"8px"}}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(x) => (x )}
+        />
+        <VictoryBar
+          data={data}
+          x="personality"
+          y="earnings"
+        />
+      </VictoryChart> */}
+    </div>
+    <div>
+   <button to="/test">Start Test</button>
+    </div>
+    </div>
+    
+  )
 }
 
-export default App;
+export default Home
