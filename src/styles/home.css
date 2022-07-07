@@ -1,0 +1,13 @@
+.container{
+    display: flex;
+    justify-content: center;
+    height: 75vh;
+    align-items: center ;
+    flex-direction: column;
+    padding-top: 5vh;
+    padding: 5vh;
+    background-image: url("../assets/img.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
