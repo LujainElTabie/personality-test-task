@@ -1,3 +1,48 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.title {
+  font-size: 3vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  margin-bottom: 10vh;
+  margin-top: 8vh;
+}
+
+.questions {
+  font-size: 2vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  width: 75vw;
+}
+
+.personality {
+  font-size: 2vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  margin: 1vw;
+}
+
+.personalityText {
+  font-size: 1.2vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  width: 75vw;
+  margin-bottom: 2vw;
+}
+
+.column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -17,7 +62,7 @@
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 2px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .button {
@@ -28,7 +73,7 @@
   padding-right: 12px;
   outline: none;
   border: 2px solid transparent;
-  color: rgb(112, 76, 182);
+  color: #77a582;
   padding-bottom: 4px;
   cursor: pointer;
   background-color: rgba(112, 76, 182, 0.1);
@@ -37,7 +82,7 @@
 }
 
 .textbox {
-  font-size: 32px;
+  font-size: 5px;
   padding: 2px;
   width: 64px;
   text-align: center;
@@ -59,7 +104,7 @@
 }
 
 .asyncButton:after {
-  content: '';
+  content: "";
   background-color: rgba(112, 76, 182, 0.15);
   display: block;
   position: absolute;
@@ -75,4 +120,38 @@
   width: 0%;
   opacity: 1;
   transition: 0s;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 8vw;
+    margin-bottom: 5vh;
+    margin-top: 8vh;
+  }
+
+  .questions {
+    font-size: 5vw;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    text-align: center;
+    width: 75vw;
+    padding-bottom: 5vh;
+  }
+
+  .personality {
+    font-size: 5vw;
+
+    margin: 2vw;
+  }
+
+  .personalityText {
+    font-size: 4.2vw;
+    margin-bottom: 5vw;
+  }
+
+  .button {
+    font-size: 5vw;
+    min-width: 38vw;
+    min-height: 12vw;
+    padding: 4vw;
+  }
 }
