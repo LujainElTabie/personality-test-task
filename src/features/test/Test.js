@@ -7,8 +7,6 @@ import {
   disagree,
   selectEx,
   selectIn,
-  selectInC,
-  selectExC,
 } from "./testSlice";
 import styles from "./test.module.css";
 import { Link } from "react-router-dom";
@@ -27,15 +25,12 @@ export function Test() {
   const questions = useSelector(selectQuestion);
   const introvert = useSelector(selectIn);
   const extrovert = useSelector(selectEx);
-  const introvertC = useSelector(selectInC);
-  const extrovertC = useSelector(selectExC);
+
   const dispatch = useDispatch();
   const [questionCount, setQuestionCount] = useState(0);
   const [question, setQuestion] = useState();
   const [questionBank, setQuestionBank] = useState(questions);
-  const [incrementAmount, setIncrementAmount] = useState("2");
 
-  const incrementValue = Number(incrementAmount) || 0;
 
   useEffect(() => {
     newQuestion();
@@ -71,7 +66,6 @@ export function Test() {
               </button>
               <button
                 className={styles.button}
-                aria-label="Increment value"
                 onClick={() => {
                   dispatch(disagree(question.value));
                   setQuestionCount(questionCount + 1);
@@ -79,7 +73,6 @@ export function Test() {
                 }}
               >
                 Disagree
-                {console.log("hi" + introvertC)}
               </button>
             </div>
             
@@ -99,7 +92,7 @@ export function Test() {
           <div className={styles.personality}>
             {introvert > extrovert ? "Introvert" : "Extrovert"}
           </div>
-          <img style={{width:"10vw", padding:"1vw"}} src= {introvert > extrovert ? introvertImg : extrovertImg}/>
+          <img alt="personality" style={{width:"10vw", padding:"1vw"}} src= {introvert > extrovert ? introvertImg : extrovertImg}/>
           <div className={styles.personalityText}>
             {introvert > extrovert
               ? "An introvert is a person with qualities of a personality type known as introversion, which means that they feel more comfortable focusing on their inner thoughts and ideas, rather than what's happening externally. They enjoy spending time with just one or two people, rather than large groups or crowds"
