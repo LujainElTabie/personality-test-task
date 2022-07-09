@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Test } from './features/test/Test';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/" >
         <Route index element={<Home />} />
-        <Route path="test" element={<Counter />} />
+        <Route path="test" element={<Test />} />
         
         
       </Route>

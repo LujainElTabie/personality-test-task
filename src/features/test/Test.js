@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   reset,
-  selectCount,
   selectQuestion,
   agree,
   disagree,
@@ -10,13 +9,13 @@ import {
   selectIn,
   selectInC,
   selectExC,
-} from "./counterSlice";
-import styles from "./Counter.module.css";
+} from "./testSlice";
+import styles from "./test.module.css";
 import { Link } from "react-router-dom";
 import extrovertImg from "../../assets/ex.jpg"
 import introvertImg from "../../assets/in.jpg"
 
-export function Counter() {
+export function Test() {
   const newQuestion = () => {
     const rand = Math.floor(Math.random() * questionBank.length);
     setQuestion(questionBank[rand]);

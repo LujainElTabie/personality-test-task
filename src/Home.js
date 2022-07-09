@@ -8,13 +8,13 @@ import {
   VictoryAxis,
   VictoryPie,
 } from "victory";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import {
   selectExC,
   selectExtrovertAbove,
   selectInC,
   selectIntrovertAbove,
-} from "./features/counter/counterSlice";
+} from "./features/test/testSlice";
 
 function Home() {
   const introvert = useSelector(selectInC);
