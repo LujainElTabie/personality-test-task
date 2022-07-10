@@ -7,15 +7,16 @@ import {
   disagree,
   selectEx,
   selectIn,
-} from "./testSlice";
-import styles from "./test.module.css";
+} from "../features/test/testSlice";
+import styles from "../styles/test.module.css";
 import { Link } from "react-router-dom";
-import extrovertImg from "../../assets/ex.jpg"
-import introvertImg from "../../assets/in.jpg"
+import extrovertImg from "../assets/ex.jpg";
+import introvertImg from "../assets/in.jpg";
 
 export function Test() {
   const newQuestion = () => {
     const rand = Math.floor(Math.random() * questionBank.length);
+    console.log("q "+questionBank[rand]+" rand "+rand+" size "+questionBank.length)
     setQuestion(questionBank[rand]);
     setQuestionBank((products) =>
       products.filter((_, index) => index !== rand)
@@ -30,7 +31,6 @@ export function Test() {
   const [questionCount, setQuestionCount] = useState(0);
   const [question, setQuestion] = useState();
   const [questionBank, setQuestionBank] = useState(questions);
-
 
   useEffect(() => {
     newQuestion();
@@ -49,7 +49,8 @@ export function Test() {
           >
             <div className={styles.row}>
               <div className={styles.questions}>
-                {questionCount + 1 + ". " + question?.text}
+                {console.log(question)}
+                {question?questionCount + 1 + ". " + question?.text:newQuestion()}
               </div>
             </div>
             <div className={styles.row}>
@@ -75,24 +76,25 @@ export function Test() {
                 Disagree
               </button>
             </div>
-            
           </div>
           <div className={styles.row} style={{ marginTop: "15vw" }}>
-        <Link
-          to="/"
-        >
-          <button style={{ width: "25vw" }} className={styles.button}>
-            Back to home page
-          </button>
-        </Link>
-      </div>
+            <Link to="/">
+              <button style={{ width: "25vw" }} className={styles.button}>
+                Back to home page
+              </button>
+            </Link>
+          </div>
         </div>
       ) : (
         <div className={styles.column}>
           <div className={styles.personality}>
             {introvert > extrovert ? "Introvert" : "Extrovert"}
           </div>
-          <img alt="personality" style={{width:"10vw", padding:"1vw"}} src= {introvert > extrovert ? introvertImg : extrovertImg}/>
+          <img
+            alt="personality"
+            style={{ width: "10vw", padding: "1vw" }}
+            src={introvert > extrovert ? introvertImg : extrovertImg}
+          />
           <div className={styles.personalityText}>
             {introvert > extrovert
               ? "An introvert is a person with qualities of a personality type known as introversion, which means that they feel more comfortable focusing on their inner thoughts and ideas, rather than what's happening externally. They enjoy spending time with just one or two people, rather than large groups or crowds"
@@ -104,37 +106,40 @@ export function Test() {
             onClick={() => {
               setQuestionCount(0);
               dispatch(
-                reset(introvert > extrovert
-                  ? { per: "Introvert", score: introvert }
-                  : { per: "Extrovert", score: extrovert })
+                reset(
+                  introvert > extrovert
+                    ? { per: "Introvert", score: introvert }
+                    : { per: "Extrovert", score: extrovert }
+                )
               );
               setQuestionBank(questions);
             }}
           >
-            Again
+            Take test again
           </button>
+          <Link className={styles.addQ} to="/question">
+            Would you like to add your own question to the test? Click Here
+          </Link>
           <div className={styles.row} style={{ marginTop: "5vw" }}>
-        <Link
-          onClick={() => {
-            dispatch(
-              reset(
-                introvert > extrovert
-                  ? { per: "Introvert", score: introvert }
-                  : { per: "Extrovert", score: extrovert }
-              )
-            );
-          }}
-          to="/"
-        >
-          <button style={{ width: "25vw" }} className={styles.button}>
-            Back to home page
-          </button>
-        </Link>
-      </div>
+            <Link
+              onClick={() => {
+                dispatch(
+                  reset(
+                    introvert > extrovert
+                      ? { per: "Introvert", score: introvert }
+                      : { per: "Extrovert", score: extrovert }
+                  )
+                );
+              }}
+              to="/"
+            >
+              <button style={{ width: "25vw" }} className={styles.button}>
+                Back to home page
+              </button>
+            </Link>
+          </div>
         </div>
-        
       )}
-      
     </div>
   );
 }

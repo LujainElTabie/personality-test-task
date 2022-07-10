@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Test } from './features/test/Test';
+import { Test } from './pages/Test';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './Home';
+import Home from './pages/Home';
+import AddQuestion from './pages/AddQuestion';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Route path="/" >
         <Route index element={<Home />} />
         <Route path="test" element={<Test />} />
-        
+        <Route path="question" element={<AddQuestion/>} />
         
       </Route>
     </Routes>

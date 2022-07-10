@@ -22,18 +22,27 @@
 }
 
 .personality {
-  font-size: 2vw;
+  font-size: 3vw;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
   margin: 1vw;
 }
 
 .personalityText {
-  font-size: 1.2vw;
+  font-size: 2vw;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   text-align: center;
   width: 75vw;
   margin-bottom: 2vw;
+}
+
+.addQ{
+  font-size: 1vw;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
+  width: 75vw;
+  margin-top: 2vw;
+  color:  rgba(76, 182, 168, 0.7);
 }
 
 .column {
@@ -91,11 +100,11 @@
 
 .button:hover,
 .button:focus {
-  border: 2px solid rgba(112, 76, 182, 0.4);
+  border: 2px solid rgba(76, 175, 182, 0.4);
 }
 
 .button:active {
-  background-color: rgba(112, 76, 182, 0.2);
+  background-color: rgba(76, 175, 182, 0.4);
 }
 
 .asyncButton {
